@@ -1,3 +1,8 @@
+---
+title: "test"
+date: 2023-03-24T19:00:25+08:00
+---
+
 ```python
 l = []
 for i in range(10):
