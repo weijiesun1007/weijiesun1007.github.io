@@ -183,7 +183,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     # 是否隐藏网站图标资源链接
     noFavicon = false
     # 更现代的 SVG 网站图标, 可替代旧的 .png 和 .ico 文件
-    svgFavicon = "/images/favicon.ico"
+    svgFavicon = "/static/favicon.ico"
     # Android 浏览器主题色
     themeColor = "#ffffff"
     # Safari 图标颜色
