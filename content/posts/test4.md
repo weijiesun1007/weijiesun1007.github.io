@@ -1,6 +1,6 @@
 ---
-title: "Server test"
-author: 小猪崽
+title: "Servertest"
+author: xiaozhuzai
 date: 2023-03-26T19:00:25+08:00
 ---
 
@@ -12,4 +12,3 @@ git add -A
 git commit -m "message"
 git push
 ```
-
