@@ -7,7 +7,9 @@ lastmod: 2023-03-26T16:00:00+08:00
 author: "weijiesun"
 authorLink: "https://github.com/weijiesun1007"
 description: "描述一下"
-tags: [模板]
+tags: 
+    - 模板
+    - 测试
 categories: [文章模板]
 ---
 <!-- featuredImage: ""
