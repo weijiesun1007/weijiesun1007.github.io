@@ -28,6 +28,14 @@ enableRobotsTXT = true
 # 是否使用 emoji 代码
 enableEmoji = true
 
+[favicon]
+  small= "favicon.ico"
+  medium= "favicon.ico"
+  apple_touch_icon= "favicon.ico"
+  safari_pinned_tab= "favicon.ico"
+  #android_manifest: /images/manifest.json
+  #ms_browserconfig: /images/browserconfig.xml
+
 # 忽略一些构建错误
 ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
 
