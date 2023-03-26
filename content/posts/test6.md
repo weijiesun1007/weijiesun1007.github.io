@@ -5,10 +5,7 @@ author: xiaozhuzai
 ---
 
 
-```
-git clone https://github.com/"weijiesun1007/weijiesun1007.github.io.git"
-
-git add -A
-git commit -m "message"
-git push
-```
+    git clone 
+    git add -A
+    git commit -m "message"
+    git push
