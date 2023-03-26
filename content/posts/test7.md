@@ -2,6 +2,10 @@
 title: "test7"
 date: 2023-03-26T14:07:25+08:00
 author: test
+tags: 
+    - 测试
+categories: 
+    - 功能测试
 ---
 
 # Hello Hello

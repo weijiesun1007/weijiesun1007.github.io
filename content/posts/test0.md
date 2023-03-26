@@ -10,7 +10,8 @@ description: "描述一下"
 tags: 
     - 模板
     - 测试
-categories: [文章模板]
+categories: 
+    - 文章模板
 ---
 <!-- featuredImage: ""
 featuredImagePreview: ""
