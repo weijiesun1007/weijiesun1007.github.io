@@ -1,12 +1,14 @@
 ---
-title: "Server"
+title: "Servertest"
 date: 2023-03-26T19:00:25+08:00
-author: 小猪崽
+author: xiaozhuzai
 ---
 
-# test
 
-# 我倒要看看是什么原因
-```bash
-cd test
+```python
+git clone https://github.com/"weijiesun1007/weijiesun1007.github.io.git"
+
+git add -A
+git commit -m "message"
+git push
 ```
