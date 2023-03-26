@@ -122,13 +122,13 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     # LoveIt 新增 | 0.2.0 页面头部导航栏标题配置
     [params.header.title]
       # LOGO 的 URL
-      logo = ""
+      logo = "/images/favicon-32x32.png"
       # 标题名称
       name = "猪崽's Happy Life"
       # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
       pre = ""
       # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
-      post = ""
+      post = "<i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i>"
       # LoveIt 新增 | 0.2.5 是否为标题显示打字机动画
       typeit = false
 
@@ -216,11 +216,11 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       # Gravatar 邮箱，用于优先在主页显示的头像
       gravatarEmail = ""
       # 主页显示头像的 URL
-      avatarURL = ""
+      avatarURL = "/images/pic.jpg"
       # LoveIt 更改 | 0.2.7 主页显示的网站标题 (支持 HTML 格式)
-      title = ""
+      title = "猪崽's Happy Life"
       # 主页显示的网站副标题 (允许 HTML 格式)
-      subtitle = "欢迎来到我的博客"
+      subtitle = "欢迎来到我和狍噗噗的猪窝！"
       # 是否为副标题显示打字机动画
       typeit = true
       # 是否显示社交账号
@@ -501,3 +501,113 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         # 位于 "assets/"
         # 或者
         # someJavascript = "https://cdn.example.com/some.js" 
+    # LoveIt 更改 | 0.2.10 页面 SEO 配置
+    [params.page.seo]
+      # 图片 URL
+      images = []
+      # 出版者信息
+      [params.page.seo.publisher]
+        name = ""
+        logoUrl = ""
+
+  # LoveIt 新增 | 0.2.5 TypeIt 配置
+  [params.typeit]
+    # 每一步的打字速度 (单位是毫秒)
+    speed = 100
+    # 光标的闪烁速度 (单位是毫秒)
+    cursorSpeed = 1000
+    # 光标的字符 (支持 HTML 格式)
+    cursorChar = "|"
+    # 打字结束之后光标的持续时间 (单位是毫秒, "-1" 代表无限大)
+    duration = -1
+
+  # 网站验证代码，用于 Google/Bing/Yandex/Pinterest/Baidu
+  [params.verification]
+    google = ""
+    bing = ""
+    yandex = ""
+    pinterest = ""
+    baidu = ""
+
+  # LoveIt 新增 | 0.2.10 网站 SEO 配置
+  [params.seo]
+    # 图片 URL
+    image = ""
+    # 缩略图 URL
+    thumbnailUrl = ""
+
+  # LoveIt 新增 | 0.2.0 网站分析配置
+  [params.analytics]
+    enable = true
+    [params.analytics.google]
+      id = ""
+      # whether to anonymize IP
+      # 是否匿名化用户 IP
+      anonymizeIP = true
+    # Fathom Analytics
+     # 百度统计,自己配置的
+    [params.analytics.baidu]
+      id = ""
+  #  Cookie 许可配置
+  #[params.cookieconsent]
+    #enable = true
+    # 用于 Cookie 许可横幅的文本字符串
+    #[params.cookieconsent.content]
+      #message = ""
+      #dismiss = ""
+      #link = ""
+
+  #  第三方库文件的 CDN 设置
+  [params.cdn]
+    # CDN 数据文件名称, 默认不启用
+    # ["jsdelivr.yml"]
+    # 位于 "themes/LoveIt/assets/data/cdn/" 目录
+    # 可以在你的项目下相同路径存放你自己的数据文件:
+    # "assets/data/cdn/"
+    data = ""
+
+  #  兼容性设置
+  [params.compatibility]
+    # 是否使用 Polyfill.io 来兼容旧式浏览器
+    polyfill = false
+    # 是否使用 object-fit-images 来兼容旧式浏览器
+    objectFit = false
+# 网站地图配置
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5
+
+# Permalinks 配置
+[Permalinks]
+  # posts = ":year/:month/:filename"
+  posts = ":filename"
+
+# 隐私信息配置
+[privacy]
+  #  Google Analytics 相关隐私 (被 params.analytics.google 替代)
+  [privacy.googleAnalytics]
+    # ...
+  [privacy.twitter]
+    enableDNT = true
+  [privacy.youtube]
+    privacyEnhanced = true
+
+# 用于输出 Markdown 格式文档的设置
+[mediaTypes]
+  [mediaTypes."text/plain"]
+    suffixes = ["md"]
+
+# 用于输出 Markdown 格式文档的设置
+[outputFormats.MarkDown]
+  mediaType = "text/plain"
+  isPlainText = true
+  isHTML = false
+
+# 用于 Hugo 输出文档的设置
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  page = ["HTML", "MarkDown"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  taxonomyTerm = ["HTML"]
