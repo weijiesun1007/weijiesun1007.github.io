@@ -6,6 +6,7 @@ author: test
 
 # Hello Hello
 # 我看看什么原因
-```bash
+
+```
 cd test
 ```
