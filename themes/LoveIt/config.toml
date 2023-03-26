@@ -20,10 +20,10 @@
   dateFormat = "2006-01-02"
   # website title for Open Graph and Twitter Cards
   # 网站标题, 用于 Open Graph 和 Twitter Cards
-  title = "小猪崽's Life"
+  title = "My cool site"
   # website description for RSS, SEO, Open Graph and Twitter Cards
   # 网站描述, 用于 RSS, SEO, Open Graph 和 Twitter Cards
-  description = "小猪崽的变强之路，从这里开始！"
+  description = "This is my cool site"
   # website images for Open Graph and Twitter Cards
   # 网站图片, 用于 Open Graph 和 Twitter Cards
   images = []
@@ -33,7 +33,7 @@
   [params.header]
     # desktop header mode ["fixed", "normal", "auto"]
     # 桌面端导航栏模式 ["fixed", "normal", "auto"]
-    desktopMode = "normal"
+    desktopMode = "fixed"
     # mobile header mode ["fixed", "normal", "auto"]
     # 移动端导航栏模式 ["fixed", "normal", "auto"]
     mobileMode = "auto"
@@ -45,10 +45,10 @@
       logo = ""
       # title name
       # 标题名称
-      name = "快乐小猪崽"
+      name = "My cool site"
       # you can add extra information before the name (HTML format is supported), such as icons
       # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
-      pre = ":pig:"
+      pre = ""
       # you can add extra information after the name (HTML format is supported), such as icons
       # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
       post = ""
@@ -74,7 +74,7 @@
     author = true
     # site creation time
     # 网站创立年份
-    since = 2023
+    since = 2022
     # ICP info only in China (HTML format is supported)
     # ICP 备案信息，仅在中国使用 (支持 HTML 格式)
     icp = ""
@@ -113,7 +113,7 @@
   [params.app]
     # optional site title override for the app when added to an iOS home screen or Android launcher
     # 当添加到 iOS 主屏幕或者 Android 启动器时的标题, 覆盖默认标题
-    title = "默认标题"
+    title = "My cool site"
     # whether to omit favicon resource links
     # 是否隐藏网站图标资源链接
     noFavicon = false
@@ -178,13 +178,13 @@
       avatarURL = ""
       # title shown in home page (HTML format is supported)
       # 主页显示的网站标题 (支持 HTML 格式)
-      title = "主页网站标题"
+      title = ""
       # subtitle shown in home page (HTML format is supported)
       # 主页显示的网站副标题 (允许 HTML 格式)
-      subtitle = "主页网站副标题"
+      subtitle = "This is my cool site"
       # whether to use typeit animation for subtitle
       # 是否为副标题显示打字机动画
-      typeit = false
+      typeit = true
       # whether to show social links
       # 是否显示社交账号
       social = true
@@ -201,7 +201,7 @@
   # Social config in home page
   # 主页的社交信息设置
   [params.social]
-    GitHub = "weijiesun1007"
+    GitHub = ""
     Linkedin = ""
     Twitter = ""
     Instagram = ""
@@ -288,7 +288,7 @@
     hiddenFromSearch = false
     # whether to enable twemoji
     # 是否使用 twemoji
-    twemoji = true
+    twemoji = false
     # whether to enable lightgallery
     # 是否使用 lightgallery
     lightgallery = false
@@ -315,7 +315,7 @@
       enable = true
       # whether to keep the static table of the contents in front of the post
       # 是否保持使用文章前面的静态目录
-      keepStatic = true
+      keepStatic = false
       # whether to make the table of the contents in the sidebar automatically collapsed
       # 是否使侧边目录自动折叠展开
       auto = true
