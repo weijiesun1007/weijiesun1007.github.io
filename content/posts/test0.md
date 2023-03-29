@@ -3,7 +3,7 @@ title: "文章标题"
 subtitle: "文章副标题"
 date: 2023-03-26T16:00:00+08:00
 lastmod: 2023-03-26T16:00:00+08:00
-# draft: true
+draft: true
 author: "weijiesun"
 authorLink: "https://github.com/weijiesun1007"
 description: "描述一下"
