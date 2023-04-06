@@ -488,18 +488,18 @@ $$ \ce{Hg^2+ ->[I-] HgI2 ->[I-] [Hg^{II}I4]^2-} $$
 转义字符语法可以帮助你渲染出想要的内容:
 
 ```markdown
-{{??}X} -> X
+<!-- {{??}X} -> X -->
 ```
 
 例如, 两个 `:` 会启用 emoji 语法. 但有时候这不是你想要的结果. 可以像这样使用转义字符语法:
 
 ```markdown
-{{??}:}joy:
+<!-- {{??}:}joy: -->
 ```
 
 呈现的输出效果如下:
 
-**{?:}joy{?:}** 而不是 **:joy:**
+<!-- **{?:}joy{?:}** 而不是 **:joy:** -->
 
 {{< admonition tip >}}
 这个方法可以间接解决一个还未解决的 **[Hugo 的 issue](https://github.com/gohugoio/hugo/issues/4978)**.
@@ -508,9 +508,9 @@ $$ \ce{Hg^2+ ->[I-] HgI2 ->[I-] [Hg^{II}I4]^2-} $$
 另一个例子是:
 
 ```markdown
-[link{{??}]}(#escape-character)
+<!-- [link{{??}]}(#escape-character) -->
 ```
 
 呈现的输出效果如下:
 
-**[link{?]}(#escape-character)** 而不是 **[link](#escape-character)**.
+<!-- **[link{?]}(#escape-character)** 而不是 **[link](#escape-character)**. -->
