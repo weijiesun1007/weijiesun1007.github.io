@@ -1,0 +1,174 @@
+# [学习日记] 螺旋矩阵转转转
+
+
+Leetcode 螺旋矩阵相关题目
+
+54.螺旋矩阵
+
+59.螺旋矩阵II
+<!--more-->
+
+# [学习日记] 2023.04.04
+# 螺旋矩阵转转转
+
+**参考链接：**
+
+[代码随想录：螺旋矩阵Ⅱ](https://www.programmercarl.com/0059.%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5II.html)
+
+## 54.螺旋矩阵
+
+**题目描述：**
+
+给你一个 m 行 n 列的矩阵 matrix ，请按照 顺时针螺旋顺序 ，返回矩阵中的所有元素。
+
+**题目链接：**[54.螺旋矩阵](https://leetcode.cn/problems/spiral-matrix/)
+
+![](images/学习日记/0404/螺旋矩阵示例.png)
+
+**题目难度：** 中等
+
+**题目解读：**
+
+本题实际上是要求对一个矩阵按指定顺序进行读取
+
+提前接触过螺旋矩阵Ⅱ，因此按照从左到右、从上到下、从右到左、从下到上，四次循环进行遍历
+
+每圈遍历结束后，通过偏移值修改，进入内圈循环，主要难点在于边界的确定，做到不重复不遗漏
+
+考虑到进入内圈，本题我采用的边界如下：
+
++ 从左到右：头尾都包括
++ 从上到下：包括尾部
++ 从右到左：包括尾部
++ 从下到上：头尾都不包括
+
+### 代码实现
+
+```python
+class Solution:
+    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        row = len(matrix)
+        col = len(matrix[0])
+        start_row = 0
+        start_col = 0
+        res = []
+        cnt = 0
+        total = (row) * (col)
+        offset = 0
+
+        while(cnt < total):
+            
+            # print('left-right')
+            for i in range(start_col, col-offset):
+                # print(matrix[start_row][i])
+                res.append(matrix[start_row][i])
+                cnt += 1
+            if cnt == total:
+                return res
+            
+            # print('up to down')
+            for i in range(start_row+1, row-offset):
+                # print(matrix[i][col-offset-1])
+                res.append(matrix[i][col-offset-1])
+                cnt += 1
+            if cnt == total:
+                return res
+
+            # print('right to left')
+            for i in range(col-offset-2, start_col-1, -1):
+                # print(matrix[row-offset-1][i])
+                res.append(matrix[row-offset-1][i])
+                cnt += 1
+            if cnt == total:
+                return res
+
+            # print('down to up')
+            for i in range(row-offset-2, start_row, -1):
+                # print(matrix[i][start_col])
+                res.append(matrix[i][start_col])
+                cnt += 1
+            if cnt == total:
+                return res
+
+            offset += 1
+            start_row += 1
+            start_col += 1
+```
+
+## 59.螺旋矩阵 II
+
+**题目描述：**
+
+给你一个正整数 `n` ，生成一个包含 `1` 到 `n2` 所有元素，且元素按顺时针顺序螺旋排列的 `n x n` 正方形矩阵 `matrix` 。
+
+**题目链接：**[59.螺旋矩阵II](https://leetcode.cn/problems/spiral-matrix-ii/)
+
+![](images/学习日记/0404/螺旋矩阵2示例.png)
+
+
+**题目难度：** 中等
+
+**题目解读：**
+
+本题思路基本与上题相同，矩阵固定为`n × n`的正方形矩阵，个人感觉比螺旋矩阵要简单一点
+
+边界的处理四个方向遍历都是包含头不包括尾，将偏移值offset初始为1，整体代码更美观一点
+
+本题各类矩阵主要区别就是`n`的奇偶，如果为奇，最后给矩阵中心点赋值，如果为偶，层层递进循环即可
+
+### 代码实现
+
+```python
+class Solution:
+    def generateMatrix(self, n: int) -> List[List[int]]:
+        start_row = 0
+        start_col = 0
+        offset = 1
+        res = [[0] * n for _ in range(n)]
+        cnt = 1
+
+        if n == 1:
+            return [[1]]
+
+        while(offset <= n//2):
+            # print('left-right')
+            for i in range(start_col, n-offset):
+                res[start_row][i] = cnt
+                cnt += 1
+            # print(res)
+            
+            for i in range(start_row, n-offset):
+                res[i][n-offset] = cnt
+                cnt += 1
+            # print(res)
+
+            for i in range(n-offset, start_col, -1):
+                res[n-offset][i] = cnt
+                cnt += 1
+            # print(res)
+
+            for i in range(n-offset, start_row, -1):
+                res[i][start_col] = cnt
+                cnt += 1
+            # print(res)
+
+            start_row += 1
+            start_col += 1
+            offset += 1
+
+        
+        if n%2 != 0:
+            res[n//2][n//2] = cnt
+        
+        return res
+```
+
+## 题型小结
++ 主要难点即使每次循环遍历的边界确定，可以考虑以含头不含尾、含尾不含头入手，也可以自行定义，不被绕迷糊即可
++ Python中矩阵的初始化，可以用`[[0]*n for _ in range(n)]` 生成一个n×n的矩阵:
+
+```python
+# [0]*n 生成的对应矩阵即为[0,..,0]
+# [[0]*n] 生成的对应矩阵为[[0,...,0]]
+# [[0]*n for _ in range(n)] 生成的矩阵为[[0,...,0],...,[0,...,0]]
+```

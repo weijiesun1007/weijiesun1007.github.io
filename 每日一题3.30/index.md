@@ -1,0 +1,132 @@
+# 狍噗噗的第二篇文章！
+
+
+Leetcode 每日一题
+
+1637.两点之间不包含任何点的最宽垂直区域
+<!--more-->
+
+# 每日一题 2023.03.30
+
+**题目描述：**
+
+给你 `n` 个二维平面上的点 `points` ，其中 `points[i] = [xi, yi]` ，请你返回两点之间内部不包含任何点的 最宽垂直区域 的宽度。
+
+垂直区域 的定义是固定宽度，而 `y` 轴上无限延伸的一块区域（也就是高度为无穷大）。 最宽垂直区域 为宽度最大的一个垂直区域。
+
+请注意，垂直区域 边上 的点 不在 区域内。
+
+
+**题目链接：**[1637.两点之间不包含任何点的最宽垂直区域](https://leetcode.cn/problems/widest-vertical-area-between-two-points-containing-no-points)
+
+示例 1：
+
+    输入：points = [[8,7],[9,9],[7,4],[9,7]]
+    输出：1
+    解释：红色区域和蓝色区域都是最优区域。
+
+
+示例 2：
+
+
+    输入：points = [[3,1],[9,0],[1,0],[1,4],[5,3],[8,8]]
+    输出：3
+
+**题目难度：** 中等
+
+**题目解读：**
+
+给定n个二维平面上的点，求两点之间内部不包含任何点的最宽垂直区域的宽度。
+
+主要注意二维vector的一些操作
+
+### 代码实现
+
+#### 1.定义二维vector：
+
+```c++
+vector<vector<int>> A;
+```
+
+相当于是四个长度为2的vector组成了vector A；
+
+#### 2.二维vector的插入：
+
+```c++
+vector<vector<int>> A;
+vector<int> B;//A.push_back的对象必须是vector
+B.push_back(0);
+B.push_back(1);
+A.push_back(B);//!!
+B.clear();//清空vector B里面的内容
+B.push_back(3);
+B.push_back(4);
+B.push_back(5);
+A.push_back(B);//由此可得A=[[0,1],[3,4,5]];
+```
+
+#### 3.vector长度的获取
+
+以2中得到的A为例：
+
+```c++
+int len1=A.size();//代表A中vector的个数
+int len2=A[0].size();//代表A中第0个vector元素的长度
+int len3=A[1].size();
+//=>len1=2;
+//  len2=2;
+//  len3=3;
+```
+
+#### 4.sort排序
+
+ ①默认按vector的第一个关键字升序排列，第一个关键字相同的，按第二个关键字升序排列：
+```c++
+//A=[[8,7],[9,9],[7,4],[9,7]]
+sort(A.begin(),A.end());
+//A=[[7,4],[8,7],[9,7],[9,9]]
+```
+
+②按vector的第一个关键字升序排列，第二个关键字降序排列：
+```c++
+//A=[[8,7],[9,9],[7,4],[9,7]]
+//Lambda表达式
+sort(A.begin(),A.end(),[](vector<int>& a, vector<int>& b) {
+    return a[0] == b[0] ? a[1] > b[1]:a[0] < b[0]; });
+//A==[[7,4],[8,7],[9,9],[9,7]]
+```
+ ③按vector的第二个关键字（每个子vector的第二个元素）降序排列：
+
+```c++
+//A=[[8,7],[9,9],[7,4],[9,7]]
+sort(A.begin(),A.end(),[](vector<int>& a, vector<int>& b) {
+    return a[1] > b[1]; });
+//A=[[9,9],[8,7],[9,7],[7,4]]
+```
+
+### 算法逻辑
+
+1.将坐标点按x轴坐标从小到大排序；
+  
+2.按序排列的x坐标两两求差，最大的差值对应于最宽垂直区域的宽度。
+
+```c++
+class Solution {
+public:
+    int maxWidthOfVerticalArea(vector<vector<int>>& points) {
+        sort(points.begin(),points.end());
+        int res=0;
+        int dif=0;
+        for(int i=1;i<points.size();i++)
+        {
+            dif=points[i][0]-points[i-1][0];
+            res=max(res,dif);
+        }
+        return res;
+    }
+};
+```
+
+
+
+

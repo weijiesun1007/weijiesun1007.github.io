@@ -1,0 +1,244 @@
+<!doctype html><html lang=zh-CN><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><title>[学习日记] 哈希表专题 - 猪崽's Happy Life</title><meta name=Description content="Nowcoder"><meta property="og:title" content="[学习日记] 哈希表专题"><meta property="og:description" content="Nowcoder"><meta property="og:type" content="article"><meta property="og:url" content="https://weijiesun1007.github.io/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B07.8/"><meta property="og:image" content="https://weijiesun1007.github.io/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2023-07-08T00:00:00+08:00"><meta property="article:modified_time" content="2023-07-08T00:00:00+08:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://weijiesun1007.github.io/"><meta name=twitter:title content="[学习日记] 哈希表专题"><meta name=twitter:description content="Nowcoder"><meta name=application-name content="猪崽's Happy Life"><meta name=apple-mobile-web-app-title content="猪崽's Happy Life"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel=icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://weijiesun1007.github.io/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B07.8/><link rel=prev href=https://weijiesun1007.github.io/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%984.27/><link rel=next href=https://weijiesun1007.github.io/markdown/><link rel=stylesheet href=/css/style.min.cf6878db51c51b2d04ae155284a4403dbee8db33e16c066f954c95279c271fcd.css integrity="sha256-z2h421HFGy0ErhVShKRAPb7o2zPhbAZvlUyVJ5wnH80="><link rel=preload href=/lib/fontawesome-free/all.min.f0c7b8d85cf716a020ea19fac22314de48452bc98568517fabdb0ca99ce66930.css integrity="sha256-8Me42Fz3FqAg6hn6wiMU3khFK8mFaFF/q9sMqZzmaTA=" as=style onload='this.onload=null,this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.f0c7b8d85cf716a020ea19fac22314de48452bc98568517fabdb0ca99ce66930.css integrity="sha256-8Me42Fz3FqAg6hn6wiMU3khFK8mFaFF/q9sMqZzmaTA="></noscript><link rel=preload href=/lib/animate/animate.min.a61e123314188bd0453320008e01b4bbb665bee09039f4cbd9bef44de410ce67.css integrity="sha256-ph4SMxQYi9BFMyAAjgG0u7ZlvuCQOfTL2b70TeQQzmc=" as=style onload='this.onload=null,this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/animate/animate.min.a61e123314188bd0453320008e01b4bbb665bee09039f4cbd9bef44de410ce67.css integrity="sha256-ph4SMxQYi9BFMyAAjgG0u7ZlvuCQOfTL2b70TeQQzmc="></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"[学习日记] 哈希表专题","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/weijiesun1007.github.io\/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B07.8\/"},"genre":"posts","keywords":"Nowcoder, 狍噗噗, 数据结构, 哈希表, 双指针","wordcount":2650,"url":"https:\/\/weijiesun1007.github.io\/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B07.8\/","datePublished":"2023-07-08T00:00:00+08:00","dateModified":"2023-07-08T00:00:00+08:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"努力刷题的狍噗噗"},"description":"Nowcoder"}</script></head><body data-header-desktop=normal data-header-mobile=normal><script type=text/javascript>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":"auto"==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:"auto"==="dark")&&document.body.setAttribute("theme","dark")</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title="猪崽's Happy Life"><img class="lazyload logo" src=/svg/loading.min.svg data-src=/images/favicon-32x32.png data-srcset="/images/favicon-32x32.png, /images/favicon-32x32.png 1.5x, /images/favicon-32x32.png 2x" data-sizes=auto alt=/images/favicon-32x32.png title=/images/favicon-32x32.png width=32 height=32>猪崽's Happy Life<span class=header-title-post><i class='far fa-kiss-wink-heart fa-fw' aria-hidden=true></i></span></a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>文章 </a><a class=menu-item href=/categories/>分类 </a><a class=menu-item href=/tags/>标签 </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
+<input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=搜索><i class="fas fa-search fa-fw" aria-hidden=true></i></a>
+<a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=清空><i class="fas fa-times-circle fa-fw" aria-hidden=true></i></a>
+<span class="search-button search-loading" id=search-loading-desktop><i class="fas fa-spinner fa-fw fa-spin" aria-hidden=true></i></span>
+</span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题><i class="fas fa-adjust fa-fw" aria-hidden=true></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="猪崽's Happy Life"><img class="lazyload logo" src=/svg/loading.min.svg data-src=/images/favicon-32x32.png data-srcset="/images/favicon-32x32.png, /images/favicon-32x32.png 1.5x, /images/favicon-32x32.png 2x" data-sizes=auto alt=/images/favicon-32x32.png title=/images/favicon-32x32.png width=32 height=32>猪崽's Happy Life<span class=header-title-post><i class='far fa-kiss-wink-heart fa-fw' aria-hidden=true></i></span></a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><div class=search-wrapper><div class="search mobile" id=search-mobile><input type=text placeholder=搜索文章标题或内容... id=search-input-mobile>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索><i class="fas fa-search fa-fw" aria-hidden=true></i></a>
+<a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=清空><i class="fas fa-times-circle fa-fw" aria-hidden=true></i></a>
+<span class="search-button search-loading" id=search-loading-mobile><i class="fas fa-spinner fa-fw fa-spin" aria-hidden=true></i></span></div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>取消</a></div><a class=menu-item href=/posts/ title>文章</a><a class=menu-item href=/categories/ title>分类</a><a class=menu-item href=/tags/ title>标签</a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw" aria-hidden=true></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">[学习日记] 哈希表专题</h1><h2 class=single-subtitle>Nowcoder 面试必刷Top101</h2><div class=post-meta><div class=post-meta-line><span class=post-author><a href=https://github.com/paopupupyc title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw" aria-hidden=true></i>努力刷题的狍噗噗</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/%E7%8B%8D%E5%99%97%E5%99%97%E5%B8%A6%E4%BD%A0%E7%8E%A9%E8%BD%AC%E7%89%9B%E5%AE%A2/><i class="far fa-folder fa-fw" aria-hidden=true></i>狍噗噗带你玩转牛客!</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw" aria-hidden=true></i>&nbsp;<time datetime=2023-07-08>2023-07-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden=true></i>&nbsp;约 2650 字&nbsp;
+<i class="far fa-clock fa-fw" aria-hidden=true></i>&nbsp;预计阅读 6 分钟&nbsp;</div></div><div class="details toc" id=toc-static data-kept><div class="details-summary toc-title"><span>目录</span>
+<span><i class="details-icon fas fa-angle-right" aria-hidden=true></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#bm50-两数之和>BM50 两数之和</a><ul><li><a href=#代码实现>代码实现</a></li></ul></li><li><a href=#bm52-组合中只出现一次的两个数字>BM52 组合中只出现一次的两个数字</a><ul><li><a href=#代码实现-1>代码实现</a></li></ul></li><li><a href=#bm54-三数之和>BM54 三数之和</a><ul><li><a href=#代码实现-2>代码实现</a></li></ul></li></ul></nav></div></div><div class=content id=content><p>Nowcoder 面试必刷Top101</p><p>BM50 两数之和</p><p>BM52 数组中只出现一次的两个数字</p><p>BM54 三数之和</p><h1 id=学习日记-20230708>[学习日记] 2023.07.08</h1><h1 id=哈希表专题>哈希表专题</h1><h2 id=bm50-两数之和>BM50 两数之和</h2><p>与Leetcode每日一题<a href=https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/ target=_blank rel="noopener noreffer">167. 两数之和 II - 输入有序数组</a>同解</p><p><strong>题目描述：</strong></p><p>给出一个整型数组 numbers 和一个目标值 target，请在数组中找出两个加起来等于目标值的数的下标，返回的下标按升序排列。
+（注：返回的数组下标从1开始算起，保证target一定可以由数组里面2个数字相加得到）</p><p>数据范围：$2 \leq len(numbers) \leq 10^5$， $-10 \leq numbers_i \leq 10^9$， $0 \leq target \leq 10^9$。</p><p>要求：时间复杂度$O(n)$，空间复杂度$O(nlogn)$</p><p><strong>题目链接：</strong><a href="https://www.nowcoder.com/practice/20ef0972485e41019e39543e8e895b7f?tpId=295&amp;tqId=745&amp;ru=/exam/oj&amp;qru=/ta/format-top101/question-ranking&amp;sourceUrl=%2Fexam%2Foj" target=_blank rel="noopener noreffer">BM50 两数之和</a></p><p>示例 1：</p><pre><code>输入：[3,2,4],6
+输出：[2,3]
+解释：因为 2+4=6 ，而 2的下标为2 ， 4的下标为3 ，又因为 下标2 &lt; 下标3 ，所以返回[2,3]
+</code></pre><p>示例 2:</p><pre><code>输入：[20,70,110,150],90
+输出：[1,2]
+解释：20+70=90
+</code></pre><p><strong>题目难度：</strong> 简单</p><p><strong>题目解读：</strong></p><ol><li><p>题目给出的是一个数组和一个目标值，需要我们在数组中找到两个加起来等于目标值的数组元素的下标，且下标要按照升序排列，从1开始；</p></li><li><p>看到这种题目可能会想到用直接遍历的方式求解（两层循环），但暴力求解的时间复杂度是 $O(n^2)$，空间复杂度为 $O(1)$，因为未申请额外空间；</p></li><li><p>显然暴力求解的方法无法达到时间复杂度的要求限制，由此应当想到使用 <strong>哈希表</strong>的方法，使用额外的空间来降低时间复杂度；</p></li><li><p><strong>哈希表</strong>是一种根据关键码（key）直接访问值（value）的一种数据结构。这种直接访问意味着只要知道key就能在Q(1)时间内得到value，因此哈希表经常被用来统计频率、快速检验某个元素是否出现过等场景；</p></li><li><p>解题思路：暴力求解的方法是将两数之和与target进行匹配，不妨做减法，遍历数组，如果没有匹配到 target-当前值 ，就将当前值存入哈希表（没有找到能与他配对的值，可能在后面），如果有，返回该数字的下标和当前值的下标即可（哈希表中的数索引值一定比当前值的索引值小）。</p></li></ol><h3 id=代码实现>代码实现</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c++ data-lang=c++><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;unordered_map&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span><span class=k>class</span> <span class=nc>Solution</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl><span class=k>public</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>    <span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm>     * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+</span></span></span><span class=line><span class=cl><span class=cm>     *
+</span></span></span><span class=line><span class=cl><span class=cm>     * 
+</span></span></span><span class=line><span class=cl><span class=cm>     * @param numbers int整型vector 
+</span></span></span><span class=line><span class=cl><span class=cm>     * @param target int整型 
+</span></span></span><span class=line><span class=cl><span class=cm>     * @return int整型vector
+</span></span></span><span class=line><span class=cl><span class=cm>     */</span>
+</span></span><span class=line><span class=cl>    <span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>twoSum</span><span class=p>(</span><span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;&amp;</span> <span class=n>numbers</span><span class=p>,</span> <span class=kt>int</span> <span class=n>target</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=c1>// write code here
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>res</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=n>unordered_map</span><span class=o>&lt;</span><span class=kt>int</span><span class=p>,</span> <span class=kt>int</span><span class=o>&gt;</span> <span class=n>hash</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span><span class=n>i</span><span class=o>&lt;</span><span class=n>numbers</span><span class=p>.</span><span class=n>size</span><span class=p>();</span><span class=n>i</span><span class=o>++</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=kt>int</span> <span class=n>temp</span><span class=o>=</span><span class=n>target</span><span class=o>-</span><span class=n>numbers</span><span class=p>[</span><span class=n>i</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span><span class=p>(</span><span class=n>hash</span><span class=p>.</span><span class=n>find</span><span class=p>(</span><span class=n>temp</span><span class=p>)</span><span class=o>==</span><span class=n>hash</span><span class=p>.</span><span class=n>end</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>            <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=n>hash</span><span class=p>[</span><span class=n>numbers</span><span class=p>[</span><span class=n>i</span><span class=p>]]</span><span class=o>=</span><span class=n>i</span><span class=p>;</span><span class=c1>//存入下标
+</span></span></span><span class=line><span class=cl><span class=c1></span>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>            <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=n>res</span><span class=p>.</span><span class=n>push_back</span><span class=p>(</span><span class=n>hash</span><span class=p>[</span><span class=n>temp</span><span class=p>]</span><span class=o>+</span><span class=mi>1</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>                <span class=n>res</span><span class=p>.</span><span class=n>push_back</span><span class=p>(</span><span class=n>i</span><span class=o>+</span><span class=mi>1</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>                <span class=k>break</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span><span class=k>return</span> <span class=n>res</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=bm52-组合中只出现一次的两个数字>BM52 组合中只出现一次的两个数字</h2><p><strong>题目描述：</strong></p><p>一个整型数组里除了两个数字只出现一次，其他的数字都出现了两次。请写程序找出这两个只出现一次的数字。</p><p>数据范围：数组长度 $2 \leq n \leq 10^3$， 数组中每个数的大小 $0 \leq val \leq 10^6$。</p><p>要求：时间复杂度$O(n)$，空间复杂度$O(1)$，输出时按非降序排列。</p><p><strong>题目链接：</strong><a href="https://www.nowcoder.com/practice/389fc1c3d3be4479a154f63f495abff8?tpId=295&amp;tqId=1375231&amp;ru=%2Fpractice%2Fe8a1b01a2df14cb2b228b30ee6a92163&amp;qru=%2Fta%2Fformat-top101%2Fquestion-ranking&amp;sourceUrl=%2Fexam%2Foj" target=_blank rel="noopener noreffer">BM52 数组中只出现一次的两个数字</a></p><p>示例 1：</p><pre><code>输入：[1,4,1,6]
+输出：[4,6]
+解释：返回的结果中较小的数排在前面
+</code></pre><p>示例 2:</p><pre><code>输入：[1,2,3,3,2,9]
+输出：[1,9]
+</code></pre><p><strong>题目难度：</strong> 中等</p><p><strong>题目解读：</strong></p><ol><li><p>题目给定的数组中有且仅有两个数字只出现过一次，显然用哈希表记录数字出现过的次数能快速解决此问题；</p></li><li><p>需要注意的是整型数组可能是无序的，而题目要求输出时按非降序排列，所以需要将vector数组排列一下。</p></li></ol><h3 id=代码实现-1>代码实现</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c++ data-lang=c++><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;unordered_map&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span><span class=k>class</span> <span class=nc>Solution</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl><span class=k>public</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>    <span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm>     * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+</span></span></span><span class=line><span class=cl><span class=cm>     *
+</span></span></span><span class=line><span class=cl><span class=cm>     * 
+</span></span></span><span class=line><span class=cl><span class=cm>     * @param nums int整型vector 
+</span></span></span><span class=line><span class=cl><span class=cm>     * @return int整型vector
+</span></span></span><span class=line><span class=cl><span class=cm>     */</span>
+</span></span><span class=line><span class=cl>    <span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>FindNumsAppearOnce</span><span class=p>(</span><span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;&amp;</span> <span class=n>nums</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=c1>// write code here
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=n>unordered_map</span><span class=o>&lt;</span><span class=kt>int</span><span class=p>,</span> <span class=kt>int</span><span class=o>&gt;</span> <span class=n>hash</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>res</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span><span class=n>i</span><span class=o>&lt;</span><span class=n>nums</span><span class=p>.</span><span class=n>size</span><span class=p>();</span><span class=n>i</span><span class=o>++</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=n>hash</span><span class=p>[</span><span class=n>nums</span><span class=p>[</span><span class=n>i</span><span class=p>]]</span><span class=o>++</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span><span class=n>i</span><span class=o>&lt;</span><span class=n>nums</span><span class=p>.</span><span class=n>size</span><span class=p>();</span><span class=n>i</span><span class=o>++</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span><span class=p>(</span><span class=n>hash</span><span class=p>[</span><span class=n>nums</span><span class=p>[</span><span class=n>i</span><span class=p>]]</span><span class=o>==</span><span class=mi>1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=n>res</span><span class=p>.</span><span class=n>push_back</span><span class=p>(</span><span class=n>nums</span><span class=p>[</span><span class=n>i</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span><span class=p>(</span><span class=n>res</span><span class=p>.</span><span class=n>size</span><span class=p>()</span><span class=o>==</span><span class=mi>2</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>break</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=n>sort</span><span class=p>(</span><span class=n>res</span><span class=p>.</span><span class=n>begin</span><span class=p>(),</span><span class=n>res</span><span class=p>.</span><span class=n>end</span><span class=p>());</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>res</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=bm54-三数之和>BM54 三数之和</h2><p><strong>题目描述：</strong></p><p>给出一个有n个元素的数组S，S中是否有元素a,b,c满足a+b+c=0？找出数组S中所有满足条件的三元组。</p><p>数据范围：$0 \leq n \leq 1000$，数组中各个元素值满足 $|val| \leq 100$</p><p>要求：时间复杂度$O(n^2)$，空间复杂度$O(n^2)$</p><p>注意：三元组$(a,b,c)$中的元素必须按非降序排列（即$a \leq b \leq c$），且解集中不能包含重复的三元组。</p><p><strong>题目链接：</strong><a href="https://www.nowcoder.com/practice/345e2ed5f81d4017bbb8cc6055b0b711?tpId=295&amp;tqId=731&amp;ru=%2Fpractice%2F389fc1c3d3be4479a154f63f495abff8&amp;qru=%2Fta%2Fformat-top101%2Fquestion-ranking&amp;sourceUrl=%2Fexam%2Foj" target=_blank rel="noopener noreffer">BM54 三数之和</a></p><p>示例 1：</p><pre><code>输入：[0]
+输出：[]
+</code></pre><p>示例 2:</p><pre><code>输入：[-2,0,1,1,2]
+输出：[[-2,0,2],[-2,1,1]]
+</code></pre><p>示例 3：</p><pre><code>输入：[-10,0,10,20,-10,-40]
+输出：[[-10,-10,20],[-10,0,10]]
+</code></pre><p><strong>题目难度：</strong> 中等</p><p><strong>题目解读：</strong></p><ol><li><p>与两数之和那题相同，最朴素的做法是先排序然后通过三重循环寻找答案，但显然达不到时间复杂度的要求；</p></li><li><p>直接找三个数的和为某个数比较麻烦，所以可以拆分一下：如果找到某个数$a$，要找到与之对应的两外两个数，三个数之和为0，也就是找到另外两个数之和为$-a$即可；</p></li><li><p>因为输出的三元组内部必须是有序的，所以可以优先对原数组进行排列，这样每次取到一个最小数$a$，只需要在后续的子数组中找到两个之和为$-a$就可以了，可以用<strong>双指针</strong>缩小区间，可以将一些完全不可能的情况抛弃；</p></li><li><p><strong>双指针</strong>是在遍历对象的过程中，不是普通的使用单个指针进行访问，而是使用两个指针（甚至是多个），两个指针或是同方向访问两个链表，或是同方向访问一个链表（快慢指针），或是相反方向扫描链表（对撞指针），从而达到目的；本题可以用对撞指针求解；</p></li><li><p>解题思路：先对数组进行排序；得到有序数组后，遍历该数组，对于每个遍历到的元素应当是三元组中最小的一个，那么另外两个一定在后面；利用双指针在右边的子数组中寻找有没有相加之和满足要求的数对存在，双指针分别指向剩余子数组的首尾，如果两者相加为目标值，则记录该三元组，遍历出所有满足要求的数对；如果二者相加的大于目标值，说明右指针太大了，将其左移缩小，相反如果二者相加小于目标值，说明左指针太小了，将其右移扩大，指导两个指针相遇，说明剩余子数组找完了。</p></li><li><p>需要注意的是对于三个数字都要判断是否相邻有重复的情况，要去重。</p></li></ol><h3 id=代码实现-2>代码实现</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c++ data-lang=c++><span class=line><span class=cl><span class=k>class</span> <span class=nc>Solution</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl><span class=k>public</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>    <span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm>     * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+</span></span></span><span class=line><span class=cl><span class=cm>     *
+</span></span></span><span class=line><span class=cl><span class=cm>     * 
+</span></span></span><span class=line><span class=cl><span class=cm>     * @param num int整型vector 
+</span></span></span><span class=line><span class=cl><span class=cm>     * @return int整型vector&lt;vector&lt;&gt;&gt;
+</span></span></span><span class=line><span class=cl><span class=cm>     */</span>
+</span></span><span class=line><span class=cl>    <span class=n>vector</span><span class=o>&lt;</span><span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=o>&gt;</span> <span class=n>threeSum</span><span class=p>(</span><span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;&amp;</span> <span class=n>num</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=c1>// write code here
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=n>vector</span><span class=o>&lt;</span><span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;&gt;</span> <span class=n>res</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span><span class=p>(</span><span class=n>num</span><span class=p>.</span><span class=n>size</span><span class=p>()</span><span class=o>&lt;</span><span class=mi>3</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=n>res</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=n>sort</span><span class=p>(</span><span class=n>num</span><span class=p>.</span><span class=n>begin</span><span class=p>(),</span><span class=n>num</span><span class=p>.</span><span class=n>end</span><span class=p>());</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>k</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span><span class=n>k</span><span class=o>&lt;</span><span class=n>num</span><span class=p>.</span><span class=n>size</span><span class=p>()</span><span class=o>-</span><span class=mi>2</span><span class=p>;</span><span class=n>k</span><span class=o>++</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span><span class=p>(</span><span class=n>k</span><span class=o>&gt;=</span><span class=mi>1</span> <span class=o>&amp;&amp;</span> <span class=n>num</span><span class=p>[</span><span class=n>k</span><span class=p>]</span><span class=o>==</span><span class=n>num</span><span class=p>[</span><span class=n>k</span><span class=o>-</span><span class=mi>1</span><span class=p>])</span>
+</span></span><span class=line><span class=cl>                <span class=k>continue</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=n>k</span><span class=o>+</span><span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=kt>int</span> <span class=n>j</span><span class=o>=</span><span class=n>num</span><span class=p>.</span><span class=n>size</span><span class=p>()</span><span class=o>-</span><span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=k>while</span><span class=p>(</span><span class=n>i</span><span class=o>&lt;</span><span class=n>j</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=k>if</span><span class=p>(</span><span class=n>num</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=o>+</span><span class=n>num</span><span class=p>[</span><span class=n>j</span><span class=p>]</span><span class=o>==-</span><span class=n>num</span><span class=p>[</span><span class=n>k</span><span class=p>])</span><span class=c1>//找到了
+</span></span></span><span class=line><span class=cl><span class=c1></span>                <span class=p>{</span>
+</span></span><span class=line><span class=cl>                    <span class=n>res</span><span class=p>.</span><span class=n>push_back</span><span class=p>({</span><span class=n>num</span><span class=p>[</span><span class=n>k</span><span class=p>],</span><span class=n>num</span><span class=p>[</span><span class=n>i</span><span class=p>],</span><span class=n>num</span><span class=p>[</span><span class=n>j</span><span class=p>]});</span>
+</span></span><span class=line><span class=cl>                    <span class=c1>//去重
+</span></span></span><span class=line><span class=cl><span class=c1></span>                    <span class=k>while</span><span class=p>(</span><span class=n>num</span><span class=p>[</span><span class=n>i</span><span class=o>+</span><span class=mi>1</span><span class=p>]</span><span class=o>==</span><span class=n>num</span><span class=p>[</span><span class=n>i</span><span class=p>])</span>
+</span></span><span class=line><span class=cl>                        <span class=n>i</span><span class=o>++</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>                    <span class=k>while</span><span class=p>(</span><span class=n>num</span><span class=p>[</span><span class=n>j</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span><span class=o>==</span><span class=n>num</span><span class=p>[</span><span class=n>j</span><span class=p>])</span>
+</span></span><span class=line><span class=cl>                        <span class=n>j</span><span class=o>--</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>                    <span class=c1>//中间还可能会有
+</span></span></span><span class=line><span class=cl><span class=c1></span>                    <span class=n>i</span><span class=o>++</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>                    <span class=n>j</span><span class=o>--</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>                <span class=p>}</span>
+</span></span><span class=line><span class=cl>                <span class=k>else</span> <span class=nf>if</span><span class=p>(</span><span class=n>num</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=o>+</span><span class=n>num</span><span class=p>[</span><span class=n>j</span><span class=p>]</span><span class=o>&gt;-</span><span class=n>num</span><span class=p>[</span><span class=n>k</span><span class=p>])</span><span class=c1>//大了
+</span></span></span><span class=line><span class=cl><span class=c1></span>                <span class=p>{</span>
+</span></span><span class=line><span class=cl>                    <span class=n>j</span><span class=o>--</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>                <span class=p>}</span>
+</span></span><span class=line><span class=cl>                <span class=k>else</span> <span class=p>{</span><span class=c1>//小了
+</span></span></span><span class=line><span class=cl><span class=c1></span>                    <span class=n>i</span><span class=o>++</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>                <span class=p>}</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>res</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span></code></pre></td></tr></table></div></div></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2023-07-08</span></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://weijiesun1007.github.io/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B07.8/ data-title="[学习日记] 哈希表专题" data-hashtags=Nowcoder,狍噗噗,数据结构,哈希表,双指针><i class="fab fa-twitter fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://weijiesun1007.github.io/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B07.8/ data-hashtag=Nowcoder><i class="fab fa-facebook-square fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="分享到 Linkedin" data-sharer=linkedin data-url=https://weijiesun1007.github.io/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B07.8/><i class="fab fa-linkedin fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://weijiesun1007.github.io/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B07.8/ data-title="[学习日记] 哈希表专题"><i data-svg-src=/lib/simple-icons/icons/line.min.svg aria-hidden=true></i></a><a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://weijiesun1007.github.io/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B07.8/ data-title="[学习日记] 哈希表专题"><i class="fab fa-weibo fa-fw" aria-hidden=true></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw" aria-hidden=true></i>&nbsp;<a href=/tags/nowcoder/>Nowcoder</a>,&nbsp;<a href=/tags/%E7%8B%8D%E5%99%97%E5%99%97/>狍噗噗</a>,&nbsp;<a href=/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/>数据结构</a>,&nbsp;<a href=/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/>哈希表</a>,&nbsp;<a href=/tags/%E5%8F%8C%E6%8C%87%E9%92%88/>双指针</a></section><section><span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%984.27/ class=prev rel=prev title="[每日一题] 1048.最长字符串链"><i class="fas fa-angle-left fa-fw" aria-hidden=true></i>[每日一题] 1048.最长字符串链</a>
+<a href=/markdown/ class=next rel=next title="Markdown 基本语法">Markdown 基本语法<i class="fas fa-angle-right fa-fw" aria-hidden=true></i></a></div></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line>由 <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.115.1">Hugo</a> 强力驱动 | 主题 - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden=true></i> LoveIt</a></div><div class=footer-line itemscope itemtype=http://schema.org/CreativeWork><i class="far fa-copyright fa-fw" aria-hidden=true></i><span itemprop=copyrightYear>2023</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=/ target=_blank>weijiesun</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw" aria-hidden=true></i>
+</a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw" aria-hidden=true></i></a></div><link rel=stylesheet href=/lib/katex/katex.min.76e39bd605d45b2d1944123c66608b0c8bb9baeb70720b212571531c7cf9bc2a.css integrity="sha256-duOb1gXUWy0ZRBI8ZmCLDIu5uutwcgshJXFTHHz5vCo="><script type=text/javascript src=/lib/autocomplete/autocomplete.min.efcd9994416f8ef0e9904c0ebc34d39ab92f5fe72a60224553434d3a818b25e5.js integrity="sha256-782ZlEFvjvDpkEwOvDTTmrkvX+cqYCJFU0NNOoGLJeU="></script><script type=text/javascript src=/lib/algoliasearch/algoliasearch-lite.umd.min.bcee652c2a6d52152e89870be6fa7a3a76ca9ed62e0eea513b6f4f55f232613d.js integrity="sha256-vO5lLCptUhUuiYcL5vp6OnbKntYuDupRO29PVfIyYT0="></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.e76fb8d9f216898822b92b5be7fc0b3085b9a3685b14089d64a10935e83a08c5.js integrity="sha256-52+42fIWiYgiuStb5/wLMIW5o2hbFAidZKEJNeg6CMU="></script><script type=text/javascript src=/lib/clipboard/clipboard.min.21708db6d7f8e20387183d7358648065dc45f7d635370fedb24df591f68f1e6b.js integrity="sha256-IXCNttf44gOHGD1zWGSAZdxF99Y1Nw/tsk31kfaPHms="></script><script type=text/javascript src=/lib/sharer/sharer.min.cc31d902aa4f3fcc8bb8c81aa534a4e2103e9b11f65b9fbd5b7156e089889ceb.js integrity="sha256-zDHZAqpPP8yLuMgapTSk4hA+mxH2W5+9W3FW4ImInOs="></script><script type=text/javascript src=/lib/katex/katex.min.eb18207487161674e717087c317db14ac1a62dadaecccb802499ce173bfeb739.js integrity="sha256-6xggdIcWFnTnFwh8MX2xSsGmLa2uzMuAJJnOFzv+tzk="></script><script type=text/javascript src=/lib/katex/contrib/auto-render.min.cb7f4ca60ed5dc3e258415f8c7a3b46d4a93578a52adf83011f18a7f190e7602.js integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="></script><script type=text/javascript src=/lib/katex/contrib/copy-tex.min.52ce78fab4860d24ef22128a52ce24ca01368a9034457a565a1d3fccbab0ddbb.js integrity="sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="></script><script type=text/javascript src=/lib/katex/contrib/mhchem.min.5c0a121a8b490afc85860a522347aeb34fb508c6b23044e5d29f6b2194227b51.js integrity="sha256-XAoSGotJCvyFhgpSI0eus0+1CMayMETl0p9rIZQie1E="></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:50},comment:{},math:{delimiters:[{display:!0,left:"$$",right:"$$"},{display:!0,left:"\\[",right:"\\]"},{display:!0,left:"\\begin{equation}",right:"\\end{equation}"},{display:!0,left:"\\begin{equation*}",right:"\\end{equation*}"},{display:!0,left:"\\begin{align}",right:"\\end{align}"},{display:!0,left:"\\begin{align*}",right:"\\end{align*}"},{display:!0,left:"\\begin{alignat}",right:"\\end{alignat}"},{display:!0,left:"\\begin{alignat*}",right:"\\end{alignat*}"},{display:!0,left:"\\begin{gather}",right:"\\end{gather}"},{display:!0,left:"\\begin{CD}",right:"\\end{CD}"},{display:!1,left:"$",right:"$"},{display:!1,left:"\\(",right:"\\)"}],strict:!1},search:{algoliaAppID:"",algoliaIndex:"",algoliaSearchKey:"",highlightTag:"em",maxResultLength:10,noResultsFound:"没有找到结果",snippetLength:50,type:"algolia"}}</script><script type=text/javascript src=/js/theme.min.b0df51c2c57145081cc73960e9aa780e6f5f56d06cf4ef0f96da8ce1619d1e12.js integrity="sha256-sN9RwsVxRQgcxzlg6ap4Dm9fVtBs9O8PltqM4WGdHhI="></script></body></html>
